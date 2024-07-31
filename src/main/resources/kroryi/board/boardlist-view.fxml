@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<BorderPane prefHeight="600.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kroryi.board.Controller">
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="0.0" spacing="30.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#moveToInsert" prefHeight="29.0" prefWidth="103.0" text="Write" />
+            <Button mnemonicParsing="false" onAction="#Close" styleClass="round-button" text="Close" />
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="30.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="56.0" prefWidth="880.0" text="Board List">
+               <font>
+                  <Font size="38.0" />
+               </font>
+            </Label>
+            <TableView fx:id="boardTableView" prefHeight="368.0" prefWidth="664.0">
+               <columns>
+                  <TableColumn fx:id="colCheckBox" prefWidth="34.0">
+                     <graphic>
+                        <CheckBox fx:id="chkSelected" mnemonicParsing="false" />
+                     </graphic>
+                  </TableColumn>
+                  <TableColumn fx:id="colNo" prefWidth="68.0" text="No" />
+                  <TableColumn fx:id="colTitle" onEditCommit="#onEditChanged" prefWidth="197.0" text="Title" />
+                  <TableColumn fx:id="colWriter" minWidth="4.0" prefWidth="87.0" text="Writer" />
+                  <TableColumn fx:id="colRegDate" prefWidth="105.0" text="Reg Date" />
+                  <TableColumn fx:id="colUpdDate" minWidth="0.0" prefWidth="119.0" text="Upd Date" />
+                  <TableColumn fx:id="colViewBtn" prefWidth="53.0" text="View" />
+               </columns>
+            </TableView>
+            <Pagination fx:id="pagination" prefHeight="67.0" prefWidth="230.0" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </center>
+   <left>
+      <fx:include source="MENU.fxml" />
+   </left>
+   <padding>
+      <Insets bottom="20.0" />
+   </padding>
+   <top>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+               <items>
+                <Button mnemonicParsing="false" text="Button" />
+               </items>
+            </ToolBar>
+         </children>
+      </VBox>
+   </top>
+</BorderPane>
