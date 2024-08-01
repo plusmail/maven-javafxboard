@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>kroryi</groupId>
-    <artifactId>Board</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <name>javafxBoard</name>
+    <artifactId>board</artifactId>
+    <version>1.0</version>
+    <name>javafxboard</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -63,12 +63,12 @@
         <repository>
             <id>github</id>
             <name>GitHub Owner Apache Maven Packages</name>
-            <url>https://github.com/plusmail/javafxboard</url>
+            <url>https://github.com/plusmail/maven-javafxboard</url>
         </repository>
         <snapshotRepository>
             <id>github</id>
             <name>GitHub Owner Apache Maven Packages</name>
-            <url>https://github.com/plusmail/javafxboard</url>
+            <url>https://github.com/plusmail/maven-javafxboard</url>
         </snapshotRepository>
     </distributionManagement>
     <build>
