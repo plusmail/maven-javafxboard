@@ -18,4 +18,4 @@ git status
 git add .
 git status
 git commit -m "release new version of ${project_name}"
-git push origin master
+git push origin main
