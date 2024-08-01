@@ -27,8 +27,50 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>21.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>21.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>21.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-swing</artifactId>
+            <version>21.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>21.0.1</version>
+        </dependency>
     </dependencies>
-
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Owner Apache Maven Packages</name>
+            <url>https://github.com/plusmail/javafxboard</url>
+        </repository>
+        <snapshotRepository>
+            <id>github</id>
+            <name>GitHub Owner Apache Maven Packages</name>
+            <url>https://github.com/plusmail/javafxboard</url>
+        </snapshotRepository>
+    </distributionManagement>
     <build>
         <plugins>
             <plugin>
@@ -40,26 +82,29 @@
                     <target>17</target>
                 </configuration>
             </plugin>
+            <!-- 다른 플러그인 설정 -->
             <plugin>
-                <groupId>org.openjfx</groupId>
-                <artifactId>javafx-maven-plugin</artifactId>
-                <version>0.0.8</version>
+                <groupId>org.panteleyev</groupId>
+                <artifactId>jpackage-maven-plugin</artifactId>
+                <version>1.6.3</version>
                 <executions>
                     <execution>
-                        <!-- Default configuration for running with: mvn clean javafx:run -->
-                        <id>default-cli</id>
-                        <configuration>
-                            <mainClass>kroryi.board/kroryi.board.Main</mainClass>
-                            <launcher>app</launcher>
-                            <jlinkZipName>app</jlinkZipName>
-                            <jlinkImageName>app</jlinkImageName>
-                            <noManPages>true</noManPages>
-                            <stripDebug>true</stripDebug>
-                            <noHeaderFiles>true</noHeaderFiles>
-                        </configuration>
+                        <goals>
+                            <goal>jpackage</goal>
+                        </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <inputDirectory>${project.build.directory}/classes</inputDirectory>
+                    <mainJar>${project.build.finalName}.jar</mainJar>
+                    <mainClass>kroryi.board.Main</mainClass>
+                    <name>JavaFXApp</name>
+                    <appVersion>${project.version}</appVersion>
+                    <!-- OS별 설정 추가 -->
+                </configuration>
             </plugin>
+
         </plugins>
     </build>
+
 </project>
