@@ -4,7 +4,7 @@
 project_name=${PWD##*/}
 
 # Local Maven Repository 경로
-local_occidere_maven_repo='~/IdeaProjects/javafxBoard'
+local_occidere_maven_repo='/home/work/IdeaProjects/javafxBoard'
 
 # Local Maven Repository의 snapshots 폴더로 deploy 실행
 mvn -Dmaven.test.skip=true -DaltDeploymentRepository=snapshot-repo::default::file://${local_occidere_maven_repo}/snapshots clean deploy
